@@ -1,0 +1,27 @@
+group 'tw.shokunin'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+apply plugin: 'application'
+
+mainClassName = "Main"
+
+sourceCompatibility = 1.8
+defaultTasks "build"
+
+
+run {
+    if ( project.hasProperty("appArgs") ) {
+        args Eval.me(appArgs)
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.1'
+    testCompile 'org.scalatest:scalatest_2.11:2.2.6'
+}
+
